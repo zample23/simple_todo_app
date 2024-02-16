@@ -2,27 +2,43 @@
 
 .todo-item {
   display: flex;
+  overflow: hidden;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   background-color: $black;
-  padding: 10px;
-  max-width: 500px;
+  padding: 8px 15px;
+  width: 100%;
   border-radius: 15px;
   font-weight: 400;
-  max-height: 55px;
   border: 2px solid $gray;
+}
+
+.todo-item.todo-done {
+  border-color: $graymuted;
+  text-decoration: line-through;
+  color: $graymuted;
 }
 
 .todo-text {
   flex-grow: 1;
+  font-size: $default-size * 0.8;
+
+  @media only screen and (max-width: $phone) {
+    font-size: $default-size * 0.7;
+  }
+}
+
+.todo-item.todo-done .todo-text,
+.todo-item.todo-done .todo-check,
+.todo-item.todo-done .todo-delete {
+  color: $graymuted;
 }
 
 .todo-check,
 .todo-delete {
-  padding: 10px;
   cursor: pointer;
   transition: all 0.2s ease-in;
-
+  flex-shrink: 0;
   &:hover {
     color: $gray;
   }
@@ -32,9 +48,9 @@
 }
 
 .todo-check {
-  font-size: 45px;
+  font-size: 25px;
 }
 
 .todo-delete {
-  font-size: 55px;
+  font-size: 35px;
 }

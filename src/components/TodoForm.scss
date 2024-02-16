@@ -2,14 +2,24 @@
 
 .todo-form {
   display: flex;
-  gap: 15px;
-  align-items: center;
+  column-gap: 30px;
+  max-width: 450px;
+
+  @media only screen and (max-width: $tablet) {
+    width: 100%;
+    column-gap: 15px;
+  }
+
+  @media only screen and (max-width: $phone) {
+    column-gap: 10px;
+  }
 }
 
 .todo-input {
-  height: 55px;
+  width: 100%;
+  flex-shrink: 1;
   border: 2px solid $gray;
-  font-size: $default-size;
+  font-size: $default-size * 0.8;
   border-radius: 15px;
   padding: 10px;
   line-height: 1;
@@ -18,17 +28,34 @@
     font-size: $default-size * 0.8;
     color: $graymuted;
   }
+  &:focus {
+    border: 2px solid $purple;
+  }
+
+  @media only screen and (max-width: $phone) {
+    font-size: $default-size * 0.7;
+    &::placeholder {
+      font-size: $default-size * 0.7;
+      color: $graymuted;
+    }
+  }
 }
 
 .todo-button {
+  width: 90px;
+  flex-shrink: 0;
   height: 55px;
   border: 2px solid $purple;
   color: $purple;
   background-color: $black;
   border-radius: 15px;
   font-size: $default-size;
-  padding: 10px 15px;
   transition: all 0.2s ease-in;
+
+  @media only screen and (max-width: $phone) {
+    width: 60px;
+    font-size: $default-size * 0.8;
+  }
 
   &:hover {
     background-color: $purple;
