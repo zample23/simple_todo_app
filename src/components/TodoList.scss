@@ -1,0 +1,7 @@
+@import './../vars.scss';
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

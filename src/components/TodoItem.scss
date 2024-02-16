@@ -1,0 +1,40 @@
+@import './../vars.scss';
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: $black;
+  padding: 10px;
+  max-width: 500px;
+  border-radius: 15px;
+  font-weight: 400;
+  max-height: 55px;
+  border: 2px solid $gray;
+}
+
+.todo-text {
+  flex-grow: 1;
+}
+
+.todo-check,
+.todo-delete {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    color: $gray;
+  }
+  &:active {
+    color: $graymuted;
+  }
+}
+
+.todo-check {
+  font-size: 45px;
+}
+
+.todo-delete {
+  font-size: 55px;
+}

@@ -1,0 +1,37 @@
+@import './../vars.scss';
+
+.todo-form {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.todo-input {
+  height: 55px;
+  border: 2px solid $gray;
+  font-size: $default-size;
+  border-radius: 15px;
+  padding: 10px;
+  line-height: 1;
+
+  &::placeholder {
+    font-size: $default-size * 0.8;
+    color: $graymuted;
+  }
+}
+
+.todo-button {
+  height: 55px;
+  border: 2px solid $purple;
+  color: $purple;
+  background-color: $black;
+  border-radius: 15px;
+  font-size: $default-size;
+  padding: 10px 15px;
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    background-color: $purple;
+    color: $black;
+  }
+}
