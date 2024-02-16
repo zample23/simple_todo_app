@@ -36,13 +36,11 @@ function App() {
         <div className="todo-wrapper">
           <h1 className="todo-title">Simple ToDo application</h1>
           <TodoForm addTodo={addTodoHandler} />
-          {/* <div className="todo-list-wrapper"> */}
           <TodoList
             todos={todos}
             deleteTodo={deleteTodoHandler}
             toggleTodo={toggleTodoHandler}
           />
-          {/* </div> */}
         </div>
       </div>
     </div>
