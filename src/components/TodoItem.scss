@@ -10,7 +10,7 @@
   width: 100%;
   border-radius: 15px;
   font-weight: 400;
-  border: 2px solid $gray;
+  border: 2px solid $purple;
 }
 
 .todo-item.todo-done {
@@ -37,13 +37,16 @@
 .todo-check,
 .todo-delete {
   cursor: pointer;
-  transition: all 0.2s ease-in;
+  transition: all 0.1s ease-in;
   flex-shrink: 0;
-  &:hover {
-    color: $gray;
-  }
-  &:active {
-    color: $graymuted;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: $gray;
+    }
+    &:active {
+      color: $graymuted;
+    }
   }
 }
 
