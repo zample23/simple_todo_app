@@ -1,12 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
-// import TodoDelete from './components/TodosDelete';
 import './App.scss';
 
 function App() {
   const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    const arrayFromStorage = JSON.parse(localStorage.getItem('todos'));
+    if (arrayFromStorage) {
+      setTodos(arrayFromStorage);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const addTodoHandler = (text) =>
     setTodos([
