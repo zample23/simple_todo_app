@@ -76,17 +76,30 @@ function App() {
     <div className="App">
       <div className="container">
         <div className="todo-wrapper">
-          <h1 className="todo-title">Simple ToDo application</h1>
+          <div className="title-toggle-wrapper">
+            <h1 className="todo-title">Simple ToDo application</h1>
+            <div className="theme-toggle-wrapper">
+              <label className="theme-toggle">
+                <input
+                  type="checkbox"
+                  onChange={themeHandler}
+                  checked={theme === 'light'}
+                />
+                <div
+                  className={`${
+                    theme === 'dark'
+                      ? 'theme-toggle-btn dark'
+                      : 'theme-toggle-btn'
+                  }`}
+                ></div>
+              </label>
+            </div>
+          </div>
           <TodoForm addTodo={addTodoHandler} />
           <TodoList
             todos={todos}
             deleteTodo={deleteTodoHandler}
             toggleTodo={toggleTodoHandler}
-          />
-          <input
-            type="checkbox"
-            onChange={themeHandler}
-            checked={theme === 'light'}
           />
         </div>
       </div>
