@@ -20,7 +20,7 @@ const TodoForm = ({ addTodo }) => {
         type="text"
         placeholder="Write down your task"
       ></input>
-      <button className="todo-button" type="submit">
+      <button className="todo-button" type="submit" title="Add your task">
         Add
       </button>
     </form>

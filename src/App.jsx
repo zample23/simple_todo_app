@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import ThemeToggle from './components/ThemeToggle';
 import './App.scss';
 
 function App() {
@@ -78,22 +79,7 @@ function App() {
         <div className="todo-wrapper">
           <div className="title-toggle-wrapper">
             <h1 className="todo-title">Simple ToDo application</h1>
-            <div className="theme-toggle-wrapper">
-              <label className="theme-toggle">
-                <input
-                  type="checkbox"
-                  onChange={themeHandler}
-                  checked={theme === 'light'}
-                />
-                <div
-                  className={`${
-                    theme === 'dark'
-                      ? 'theme-toggle-btn dark'
-                      : 'theme-toggle-btn'
-                  }`}
-                ></div>
-              </label>
-            </div>
+            <ThemeToggle themeHandler={themeHandler} theme={theme} />
           </div>
           <TodoForm addTodo={addTodoHandler} />
           <TodoList
