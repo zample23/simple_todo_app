@@ -5,8 +5,36 @@ import TodoList from './components/TodoList';
 import './App.scss';
 
 function App() {
+  //THEME
+  const [theme, setTheme] = useState('dark');
+
+  //Theme changing
+  const themeHandler = () => {
+    setTheme(() => (theme === 'dark' ? 'light' : 'dark'));
+  };
+
+  //Theme body class updating
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
+  //Theme loading from localStorage
+  useEffect(() => {
+    const themeFromLocalStorage = localStorage.getItem('theme');
+    if (themeFromLocalStorage) {
+      setTheme(themeFromLocalStorage);
+    }
+  }, []);
+
+  //Theme saving in localStorage
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  //TODOS
   const [todos, setTodos] = useState([]);
 
+  //ToDos loading from localStorage
   useEffect(() => {
     const arrayFromStorage = JSON.parse(localStorage.getItem('todos'));
     if (arrayFromStorage) {
@@ -14,10 +42,12 @@ function App() {
     }
   }, []);
 
+  //ToDos saving in localStorage
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
+  // ToDos adding to the state
   const addTodoHandler = (text) =>
     setTodos([
       ...todos,
@@ -28,9 +58,11 @@ function App() {
       },
     ]);
 
+  // ToDos deleting from the state
   const deleteTodoHandler = (id) =>
     setTodos(todos.filter((todo) => todo.id !== id));
 
+  // ToDos toggling the property isCompleted (making a todo done or undone)
   const toggleTodoHandler = (id) =>
     setTodos(
       todos.map((todo) =>
@@ -50,6 +82,11 @@ function App() {
             todos={todos}
             deleteTodo={deleteTodoHandler}
             toggleTodo={toggleTodoHandler}
+          />
+          <input
+            type="checkbox"
+            onChange={themeHandler}
+            checked={theme === 'light'}
           />
         </div>
       </div>

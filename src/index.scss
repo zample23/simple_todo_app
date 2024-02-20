@@ -2,7 +2,9 @@
 @import './vars.scss';
 
 body {
-  background-color: $black;
+  // background-color: $maincolor;
+  background-color: var(--maincolor);
+
   color: $purple;
   font-family: $font-main;
   font-size: $default-size;
