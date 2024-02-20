@@ -1,5 +1,6 @@
-import './TodoForm.scss';
 import { useState } from 'react';
+import { MdOutlineClear } from 'react-icons/md';
+import './TodoForm.scss';
 
 const TodoForm = ({ addTodo }) => {
   const [text, setText] = useState('');
@@ -19,7 +20,8 @@ const TodoForm = ({ addTodo }) => {
         className="todo-input"
         type="text"
         placeholder="Write down your task"
-      ></input>
+      />
+      <MdOutlineClear className="todo-form-clear" onClick={() => setText('')} />
       <button className="todo-button" type="submit" title="Add your task">
         Add
       </button>
