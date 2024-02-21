@@ -28,6 +28,7 @@
   padding: 10px;
   line-height: 1;
 
+  padding-right: 45px;
   &::placeholder {
     font-size: $default-size * 0.8;
     color: $graymuted;
@@ -51,14 +52,21 @@
   font-size: 25px;
   position: absolute;
   cursor: pointer;
-
   @media only screen and (max-width: $laptop) {
     font-size: 23px;
-    left: 65%;
+    left: 67%;
   }
   @media only screen and (max-width: $tablet) {
-    font-size: 23px;
     left: 70%;
+  }
+  @media only screen and (max-width: 460px) {
+    left: 67%;
+  }
+  @media only screen and (max-width: $phone) {
+    left: 72%;
+  }
+  @media only screen and (max-width: 370px) {
+    left: 68%;
   }
 }
 
