@@ -1,8 +1,11 @@
+import { useContext } from 'react';
 import { FaCheck } from 'react-icons/fa';
 import { TiDelete } from 'react-icons/ti';
+import TodosContext from '../context/TodosContext';
 import './TodoItem.scss';
 
-const TodoItem = ({ todo, deleteTodo, toggleTodo }) => {
+const TodoItem = ({ todo }) => {
+  const { deleteTodo, toggleTodo } = useContext(TodosContext);
   return (
     <div
       className={`${todo.isCompleted ? 'todo-item todo-done' : 'todo-item'}`}

@@ -21,7 +21,11 @@ const TodoForm = ({ addTodo }) => {
         type="text"
         placeholder="Write down your task"
       />
-      <MdOutlineClear className="todo-form-clear" onClick={() => setText('')} />
+      <MdOutlineClear
+        className="todo-form-clear"
+        onClick={() => setText('')}
+        title="Clear the field"
+      />
       <button className="todo-button" type="submit" title="Add your task">
         Add
       </button>

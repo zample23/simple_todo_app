@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
+import TodosContext from './context/TodosContext';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import ThemeToggle from './components/ThemeToggle';
@@ -74,22 +75,25 @@ function App() {
     );
 
   return (
-    <div className="App">
-      <div className="container">
-        <div className="todo-wrapper">
-          <div className="title-toggle-wrapper">
-            <h1 className="todo-title">Simple ToDo application</h1>
-            <ThemeToggle themeHandler={themeHandler} theme={theme} />
+    <TodosContext.Provider
+      value={{
+        deleteTodo: deleteTodoHandler,
+        toggleTodo: toggleTodoHandler,
+      }}
+    >
+      <div className="App">
+        <div className="container">
+          <div className="todo-wrapper">
+            <div className="title-toggle-wrapper">
+              <h1 className="todo-title">Simple ToDo application</h1>
+              <ThemeToggle themeHandler={themeHandler} theme={theme} />
+            </div>
+            <TodoForm addTodo={addTodoHandler} />
+            <TodoList todos={todos} />
           </div>
-          <TodoForm addTodo={addTodoHandler} />
-          <TodoList
-            todos={todos}
-            deleteTodo={deleteTodoHandler}
-            toggleTodo={toggleTodoHandler}
-          />
         </div>
       </div>
-    </div>
+    </TodosContext.Provider>
   );
 }
 
